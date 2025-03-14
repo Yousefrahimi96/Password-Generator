@@ -1,0 +1,6 @@
+### `requirements.txt`
+
+The `requirements.txt` file lists the external dependencies needed for the project. In this case, only `nltk` is required:
+
+```txt
+nltk
