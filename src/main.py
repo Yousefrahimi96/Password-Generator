@@ -25,7 +25,7 @@ def PinGenerator(Lengh):
 def MemorableGenerator(Lengh):
         i = 0
         pass_str = ''
-        while i < self.size:
+        while i < Lengh:
             random_word = random.choice(word_list)  # انتخاب یه کلمه تصادفی
             pass_str = pass_str + '-' + random_word
             i = i +1
@@ -33,11 +33,15 @@ def MemorableGenerator(Lengh):
     
 if option == 'Pin Code':
     Lengh = st.slider("Lengh", min_value=4, max_value=64)
-    pincode = Pin.generator(Lengh)
+    pincode = PinGenerator(Lengh)
     st.write(pincode)
     
 elif option == 'Random Password':
-    st.write('random pssword')
+    Lengh = st.slider("Lengh", min_value=4, max_value=64)
+    password = RandomGenerator(Lengh)
+    st.write(password)
     
 else:
-    st.write('Memorable Password')
+    Lengh = st.slider("Lengh", min_value=4, max_value=64)
+    password = MemorableGenerator(Lengh)
+    st.write(password)
