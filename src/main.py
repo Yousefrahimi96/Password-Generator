@@ -28,16 +28,16 @@ class RandomPassword(Parent):
         password = ''.join(random.choice(characters) for _ in range(self.size))  # پسورد 10 کاراکتری
         return password
     
-class Memorable(Parent):
-    def __init__(self, size):
-        super().__init__(size)
+class Pin(Parent):
+    def __init__(self):
+        pass
         
-    def generator(self):
-        number = str(random.randint(10**(self.size-1), 10**self.size - 1))  # عدد تصادفی
+    def generator(size):
+        number = str(random.randint(10**(size-1), 10**size - 1))  # عدد تصادفی
         return number
 
     
-class Pin(Parent):
+class Memorable(Parent):
     def __init__(self, size):
         super().__init__(size)
         
@@ -50,17 +50,13 @@ class Pin(Parent):
             i = i +1
         return pass_str
     
-if __name__ == "__main__":
-
-    word_list = words.words()
+if option == 'Pin Code':
+    Lengh = st.slider("Lengh", min_value=4, max_value=64)
+    pincode = Pin.generator(Lengh)
+    st.write(pincode)
     
-    rp = RandomPassword(15)
-    print("Random Password:", rp.generator())
+elif option == 'Random Password':
+    st.write('random pssword')
     
-    mp = Memorable(100)
-    print("Memorable Password:", mp.generator())
-    
-    pp = Pin(38)
-    print("Pin Password:", pp.generator())
-
-    
+else:
+    st.write('Memorable Password')
