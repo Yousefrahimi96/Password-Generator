@@ -1,11 +1,15 @@
+import streamlit as st
 from abc import ABC, abstractmethod
 import random
 import nltk
 from nltk.corpus import words
 import string
 
+nltk.download('words')  # دانلود لیست کلمات
 word_list = words.words()  # دسترسی به لیست کلمات
 
+st.title(":zap: Password Genertaor")
+option = st.radio("Password Type", ('Random Password', 'Memorable Password', 'Pin Code'))
 
 class Parent(ABC):
     def __init__(self, size = 10):
@@ -47,7 +51,7 @@ class Pin(Parent):
         return pass_str
     
 if __name__ == "__main__":
-    nltk.download('words')  # دانلود لیست کلمات
+
     word_list = words.words()
     
     rp = RandomPassword(15)
