@@ -1,5 +1,4 @@
 import streamlit as st
-from abc import ABC, abstractmethod
 import random
 import nltk
 from nltk.corpus import words
@@ -11,37 +10,19 @@ word_list = words.words()  # دسترسی به لیست کلمات
 st.title(":zap: Password Genertaor")
 option = st.radio("Password Type", ('Random Password', 'Memorable Password', 'Pin Code'))
 
-class Parent(ABC):
-    def __init__(self, size = 10):
-        self.size = size
-        
-    @abstractmethod
-    def generator(self):
-        pass
+
     
-class RandomPassword(Parent):
-    def __init__(self, size):
-        super().__init__(size)
-        
-    def generator(self):
+def RandomGenerator(Lengh):
         characters = string.ascii_letters + string.digits  # حروف و اعداد
-        password = ''.join(random.choice(characters) for _ in range(self.size))  # پسورد 10 کاراکتری
+        password = ''.join(random.choice(characters) for _ in range(Lengh))  # پسورد 10 کاراکتری
         return password
     
-class Pin(Parent):
-    def __init__(self):
-        pass
-        
-    def generator(size):
-        number = str(random.randint(10**(size-1), 10**size - 1))  # عدد تصادفی
+def PinGenerator(Lengh):
+        number = str(random.randint(10**(Lengh-1), 10**Lengh - 1))  # عدد تصادفی
         return number
 
     
-class Memorable(Parent):
-    def __init__(self, size):
-        super().__init__(size)
-        
-    def generator(self):
+def MemorableGenerator(Lengh):
         i = 0
         pass_str = ''
         while i < self.size:
