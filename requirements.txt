@@ -1,6 +1,2 @@
-### `requirements.txt`
-
-The `requirements.txt` file lists the external dependencies needed for the project. In this case, only `nltk` is required:
-
-```txt
-nltk
+nltk==3.9.1
+streamlit==1.43.1
