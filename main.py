@@ -7,6 +7,7 @@ import string
 nltk.download('words')  #download the list of word
 word_list = words.words()
 
+st.image('./data/images.png')
 st.title(":zap: Password Generator")
 option = st.radio("Password Type", ('Random Password', 'Memorable Password', 'Pin Code'))
 
